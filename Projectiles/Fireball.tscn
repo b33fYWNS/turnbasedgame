@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://bskfvos7i22cx"]
+
+[ext_resource type="Script" path="res://Projectiles/Fireball.gd" id="1_d4br7"]
+[ext_resource type="Texture2D" uid="uid://wm7eu5cx0qt" path="res://WestwickAssets/Sprites/Fireball.png" id="2_yrnup"]
+[ext_resource type="Texture2D" uid="uid://dg8tb8ismlpk2" path="res://WestwickAssets/Sprites/FlameParticle.png" id="3_02ehu"]
+[ext_resource type="AudioStream" uid="uid://cvjqedb15pbwg" path="res://WestwickAssets/MuiscAndSounds/a_fire.wav" id="4_udvew"]
+[ext_resource type="AudioStream" uid="uid://bb6hy8oaj7uv6" path="res://YWNS_Assets/MusicSFX/03_Fire_explosion_03_medium.wav" id="5_3mq4p"]
+
+[sub_resource type="Curve" id="Curve_djwa4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.977833, 0.17741), -1.11511, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_48pin"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agda4"]
+atlas = ExtResource("2_yrnup")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtp8a"]
+atlas = ExtResource("2_yrnup")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmgmg"]
+atlas = ExtResource("2_yrnup")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fh2r"]
+atlas = ExtResource("2_yrnup")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3lj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agda4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtp8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmgmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fh2r")
+}],
+"loop": true,
+"name": &"Effect",
+"speed": 10.0
+}]
+
+[node name="Fireball" type="Node2D"]
+script = ExtResource("1_d4br7")
+
+[node name="Flame" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
+amount = 20
+texture = ExtResource("3_02ehu")
+emission_shape = 1
+emission_sphere_radius = 9.76
+direction = Vector2(0, 0)
+spread = 25.85
+gravity = Vector2(-150, 0)
+initial_velocity_min = 41.53
+initial_velocity_max = 78.49
+angle_min = 170.9
+angle_max = 720.0
+scale_amount_max = 1.56
+scale_amount_curve = SubResource("Curve_djwa4")
+color_ramp = SubResource("Gradient_48pin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_x3lj2")
+animation = &"Effect"
+autoplay = "Effect"
+flip_h = true
+
+[node name="Explosion" type="CPUParticles2D" parent="."]
+position = Vector2(-1, -1)
+emitting = false
+amount = 35
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.51
+texture = ExtResource("3_02ehu")
+emission_shape = 1
+emission_sphere_radius = 8.29
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 59.8
+initial_velocity_max = 96.32
+orbit_velocity_min = -1.0
+orbit_velocity_max = -1.0
+angle_min = 170.9
+angle_max = 720.0
+scale_amount_max = 1.56
+scale_amount_curve = SubResource("Curve_djwa4")
+color_ramp = SubResource("Gradient_48pin")
+
+[node name="Fire_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_udvew")
+autoplay = true
+bus = &"Sounds"
+
+[node name="FireImpactSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3mq4p")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://bpa0j7ki6xkaj"]
+
+[ext_resource type="Texture2D" uid="uid://b5u0hwgebw80i" path="res://YWNS_Assets/temp_game_pfp-export.png" id="1_sdalm"]
+[ext_resource type="Script" path="res://Characters/Character.gd" id="2_byd0j"]
+
+[resource]
+script = ExtResource("2_byd0j")
+name = "Lost Pilgrim"
+portrait = ExtResource("1_sdalm")
+location = Vector2(0, 0)
+voice_pitch = 1.1

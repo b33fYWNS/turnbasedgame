@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://xwfddciiu02j"]
+
+[ext_resource type="Script" path="res://Characters/Character.gd" id="1_tokpg"]
+[ext_resource type="Texture2D" uid="uid://bnloai2ccai23" path="res://YWNS_Assets/Olsten_the_first.png" id="1_xr515"]
+
+[resource]
+script = ExtResource("1_tokpg")
+name = "Olsten"
+portrait = ExtResource("1_xr515")
+location = Vector2(120, 80)
+voice_pitch = 0.8

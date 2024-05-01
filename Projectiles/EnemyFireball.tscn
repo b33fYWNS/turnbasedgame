@@ -1,0 +1,151 @@
+[gd_scene load_steps=19 format=3 uid="uid://b0gssue5t2yde"]
+
+[ext_resource type="Script" path="res://Projectiles/Fireball.gd" id="1_gh0g3"]
+[ext_resource type="Texture2D" uid="uid://dg8tb8ismlpk2" path="res://WestwickAssets/Sprites/FlameParticle.png" id="2_jqjyc"]
+[ext_resource type="Texture2D" uid="uid://dkqr3oio3opyh" path="res://WestwickAssets/Sprites/Flameball_SpriteSheet.png" id="3_u22e2"]
+[ext_resource type="AudioStream" uid="uid://bb6hy8oaj7uv6" path="res://YWNS_Assets/MusicSFX/03_Fire_explosion_03_medium.wav" id="4_jg6v0"]
+[ext_resource type="AudioStream" uid="uid://cvjqedb15pbwg" path="res://WestwickAssets/MuiscAndSounds/a_fire.wav" id="4_xa26a"]
+
+[sub_resource type="Curve" id="Curve_djwa4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.977833, 0.17741), -1.11511, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_48pin"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wsih"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2fy1"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i7a1"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg6wh"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylm5o"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag7yu"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q88e"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dfbj"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj177"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(288, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4w33"]
+atlas = ExtResource("3_u22e2")
+region = Rect2(384, 96, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nfch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wsih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2fy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i7a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg6wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylm5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag7yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q88e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dfbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj177")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4w33")
+}],
+"loop": true,
+"name": &"Flameball",
+"speed": 15.12
+}]
+
+[node name="EnemyFireball" type="Node2D"]
+script = ExtResource("1_gh0g3")
+
+[node name="Flame" type="CPUParticles2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
+amount = 20
+texture = ExtResource("2_jqjyc")
+emission_shape = 1
+emission_sphere_radius = 9.76
+direction = Vector2(0, 0)
+spread = 25.85
+gravity = Vector2(-150, 0)
+initial_velocity_min = 41.53
+initial_velocity_max = 78.49
+angle_min = 170.9
+angle_max = 720.0
+scale_amount_max = 1.56
+scale_amount_curve = SubResource("Curve_djwa4")
+color_ramp = SubResource("Gradient_48pin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, 1)
+sprite_frames = SubResource("SpriteFrames_3nfch")
+animation = &"Flameball"
+frame_progress = 0.121534
+
+[node name="Explosion" type="CPUParticles2D" parent="."]
+position = Vector2(-1, -1)
+emitting = false
+amount = 35
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.51
+texture = ExtResource("2_jqjyc")
+emission_shape = 1
+emission_sphere_radius = 8.29
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 59.8
+initial_velocity_max = 96.32
+orbit_velocity_min = -1.0
+orbit_velocity_max = -1.0
+angle_min = 170.9
+angle_max = 720.0
+scale_amount_max = 1.56
+scale_amount_curve = SubResource("Curve_djwa4")
+color_ramp = SubResource("Gradient_48pin")
+
+[node name="FireSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xa26a")
+
+[node name="FireImpactSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jg6v0")
+volume_db = -8.821

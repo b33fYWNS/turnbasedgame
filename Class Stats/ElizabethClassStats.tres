@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PlayerClassStats" load_steps=6 format=3 uid="uid://d1c4m8578rdxg"]
+
+[ext_resource type="PackedScene" uid="uid://bwnkcvog6hwa1" path="res://Battle/elizabeth_battle_animations.tscn" id="1_243ty"]
+[ext_resource type="Script" path="res://Class Stats/PlayerClassStats.gd" id="2_3s7nq"]
+[ext_resource type="Resource" uid="uid://d24gfhuxg5gyc" path="res://BattleActions/AgorasLight.tres" id="2_ym83j"]
+[ext_resource type="Resource" uid="uid://dsrpt3xt22o32" path="res://BattleActions/FireballBattleAction.tres" id="4_ld2uo"]
+[ext_resource type="Resource" uid="uid://12ipmv52syl3" path="res://Items/Inventory.tres" id="6_2rnt5"]
+
+[resource]
+script = ExtResource("2_3s7nq")
+inventory = ExtResource("6_2rnt5")
+charactername = "Pilgrim"
+max_health = 10
+attack = 10
+defense = 8
+crit_chance = 0.5
+BattleAnimations = ExtResource("1_243ty")
+battle_actions = Array[Resource]([ExtResource("2_ym83j"), ExtResource("4_ld2uo")])

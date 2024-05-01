@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cu0lo0k6y1yg6"]
+
+[ext_resource type="Texture2D" uid="uid://q3ns5rtwfk2e" path="res://WestwickAssets/Sprites/Apple.png" id="1_jrgmo"]
+[ext_resource type="Script" path="res://Items/HealingItem.gd" id="2_3245d"]
+
+[resource]
+script = ExtResource("2_3245d")
+heal_amount = 2
+name = "Apple"
+description = "A small fruit, heals 2 HP."
+amount = 1
+overworld_sprite = ExtResource("1_jrgmo")

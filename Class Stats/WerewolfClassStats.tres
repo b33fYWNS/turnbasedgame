@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ClassStats" load_steps=4 format=3 uid="uid://bguxw6d83a77c"]
+
+[ext_resource type="PackedScene" uid="uid://cpyq3e7irc1xt" path="res://Battle/werewolf_battle_animations.tscn" id="1_6ojua"]
+[ext_resource type="Script" path="res://Class Stats/ClassStats.gd" id="1_lmeng"]
+[ext_resource type="Resource" uid="uid://c86ihakd1bm8b" path="res://BattleActions/MeleeBattleAction.tres" id="2_hv85h"]
+
+[resource]
+script = ExtResource("1_lmeng")
+charactername = ""
+max_health = 6
+attack = 6
+defense = 7
+crit_chance = 0.1
+BattleAnimations = ExtResource("1_6ojua")
+battle_actions = Array[Resource]([ExtResource("2_hv85h")])

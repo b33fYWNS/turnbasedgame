@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ClassStats" load_steps=5 format=3 uid="uid://dedkicf5qvrr6"]
+
+[ext_resource type="PackedScene" uid="uid://bky73aauwcngb" path="res://Battle/flesh_beast_battle_animations.tscn" id="1_8slu1"]
+[ext_resource type="Script" path="res://Class Stats/ClassStats.gd" id="1_vqjqn"]
+[ext_resource type="Script" path="res://AIs/RandomActionAI.gd" id="2_bsfbc"]
+[ext_resource type="Resource" uid="uid://cy08du6mkwags" path="res://BattleActions/EnemyBattleAction.tres" id="2_eg2k4"]
+
+[resource]
+script = ExtResource("1_vqjqn")
+charactername = ""
+max_health = 15
+attack = 8
+defense = 4
+BattleAnimations = ExtResource("1_8slu1")
+battle_actions = Array[Resource]([ExtResource("2_eg2k4")])
+ai = ExtResource("2_bsfbc")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://bvt8c5ftqd8fh"]
+
+[ext_resource type="Script" path="res://BattleActions/BattleAction.gd" id="1_my5yl"]
+
+[resource]
+script = ExtResource("1_my5yl")
+name = "Run"
+description = "Have a chance to escape from battle."

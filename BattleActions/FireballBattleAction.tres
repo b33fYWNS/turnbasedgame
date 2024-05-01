@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RangedBattleAction" load_steps=3 format=3 uid="uid://dsrpt3xt22o32"]
+
+[ext_resource type="PackedScene" uid="uid://bskfvos7i22cx" path="res://Projectiles/Fireball.tscn" id="1_05gua"]
+[ext_resource type="Script" path="res://BattleActions/RangedBattleAction.gd" id="2_nn338"]
+
+[resource]
+script = ExtResource("2_nn338")
+projectile = ExtResource("1_05gua")
+damage = 7
+name = "Yuria's Flame"
+description = "Harness the flames of Yuria"

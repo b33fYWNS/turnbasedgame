@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://blq6x7cpt7uqd"]
+
+[ext_resource type="Script" path="res://Battle/battle_camera.gd" id="1_3072u"]
+
+[node name="BattleCamera" type="Camera2D"]
+modulate = Color(1, 0, 1, 1)
+position_smoothing_enabled = true
+script = ExtResource("1_3072u")

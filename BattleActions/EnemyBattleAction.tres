@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyBattleAction" load_steps=3 format=3 uid="uid://cy08du6mkwags"]
+
+[ext_resource type="Script" path="res://BattleActions/EnemyBattleAction.gd" id="1_5abt3"]
+[ext_resource type="PackedScene" uid="uid://b0gssue5t2yde" path="res://Projectiles/EnemyFireball.tscn" id="1_e6mpp"]
+
+[resource]
+script = ExtResource("1_5abt3")
+projectile = ExtResource("1_e6mpp")
+damage = 5
+name = "Enemy Attack"
+description = "Enemy Deals Damage"

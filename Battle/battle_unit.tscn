@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ghj2gg0eyiii"]
+
+[ext_resource type="Script" path="res://Battle/battle_unit.gd" id="1_tx4pb"]
+[ext_resource type="PackedScene" uid="uid://fllr6kpwv7u7" path="res://Battle/battle_shield.tscn" id="2_djqts"]
+[ext_resource type="AudioStream" uid="uid://c6d5gjn0j3bmf" path="res://YWNS_Assets/MusicSFX/Enemy_Hit_SFX_02.mp3" id="3_g8ine"]
+[ext_resource type="AudioStream" uid="uid://tc3wanuyfub2" path="res://WestwickAssets/MuiscAndSounds/a_defend.wav" id="4_75e5b"]
+[ext_resource type="AudioStream" uid="uid://bynt6p1hjbmgv" path="res://YWNS_Assets/MusicSFX/Healing2.wav" id="5_ysvgc"]
+
+[node name="BattleUnit" type="Node2D"]
+script = ExtResource("1_tx4pb")
+
+[node name="BattleShield" parent="." instance=ExtResource("2_djqts")]
+visible = false
+z_index = 5
+position = Vector2(20, -24)
+
+[node name="HitSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g8ine")
+volume_db = -8.821
+bus = &"Sounds"
+
+[node name="DefendSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_75e5b")
+volume_db = -9.121
+bus = &"Sounds"
+
+[node name="HealingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ysvgc")
+volume_db = -8.821
+bus = &"Sounds"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c86ihakd1bm8b"]
+
+[ext_resource type="Script" path="res://BattleActions/MeleeBattleAction.gd" id="1_4d6bg"]
+
+[resource]
+script = ExtResource("1_4d6bg")
+damage = 5
+name = "Melee"
+description = "Damage 1x Enemy for 1.6x ATK"

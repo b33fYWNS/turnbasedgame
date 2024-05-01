@@ -1,0 +1,381 @@
+[gd_scene load_steps=26 format=3 uid="uid://b15eqhpp5mpda"]
+
+[ext_resource type="Script" path="res://Battle/battle.gd" id="1_s1rqf"]
+[ext_resource type="Texture2D" uid="uid://4pwo6wwljpk1" path="res://WestwickAssets/Sprites/Sky.png" id="2_n0jd4"]
+[ext_resource type="Texture2D" uid="uid://d3icky8od0yym" path="res://WestwickAssets/Sprites/Mountains.png" id="3_6a8eg"]
+[ext_resource type="Texture2D" uid="uid://bvpwqjlmr7k43" path="res://WestwickAssets/Sprites/BattleTrees.png" id="4_i12og"]
+[ext_resource type="Texture2D" uid="uid://174g7ia3f6pm" path="res://WestwickAssets/Sprites/BattleTree.png" id="5_fqwkt"]
+[ext_resource type="Texture2D" uid="uid://d1pvcb8mv461j" path="res://WestwickAssets/Sprites/BattleGrass.png" id="6_kxpnl"]
+[ext_resource type="Texture2D" uid="uid://cy8svo5bsso0d" path="res://WestwickAssets/Sprites/BattleGrassFront.png" id="7_cf5re"]
+[ext_resource type="PackedScene" uid="uid://ghj2gg0eyiii" path="res://Battle/battle_unit.tscn" id="7_ut7bd"]
+[ext_resource type="Resource" uid="uid://d1c4m8578rdxg" path="res://Class Stats/ElizabethClassStats.tres" id="8_0tu6a"]
+[ext_resource type="Texture2D" uid="uid://dqqis5ueqkgvf" path="res://WestwickAssets/Sprites/BattleGrassForeground.png" id="8_quycr"]
+[ext_resource type="Resource" uid="uid://bguxw6d83a77c" path="res://Class Stats/WerewolfClassStats.tres" id="9_jouir"]
+[ext_resource type="Texture2D" uid="uid://1regjonx2j71" path="res://WestwickAssets/Sprites/BattleTreesForeground.png" id="9_ut0lq"]
+[ext_resource type="Script" path="res://Battle/AnimationPlayer.gd" id="11_lfpev"]
+[ext_resource type="PackedScene" uid="uid://blq6x7cpt7uqd" path="res://Battle/battle_camera.tscn" id="13_e6hvl"]
+[ext_resource type="PackedScene" uid="uid://63rng0y4qvui" path="res://UI/battle_unit_info.tscn" id="14_tv2pf"]
+[ext_resource type="PackedScene" uid="uid://cfflcweyq8uin" path="res://UI/level_up_ui.tscn" id="15_gsp3d"]
+[ext_resource type="PackedScene" uid="uid://cwoprutdptj4n" path="res://UI/battle_menu_manager.tscn" id="17_rod84"]
+[ext_resource type="AudioStream" uid="uid://b8wyiplrm40qq" path="res://YWNS_Assets/MusicSFX/74_Lvl_up_02.wav" id="18_2o7yi"]
+[ext_resource type="AudioStream" uid="uid://yagoacg2itsv" path="res://YWNS_Assets/MusicSFX/Encounter_1.wav" id="19_4t0j7"]
+[ext_resource type="Texture2D" uid="uid://dfthbfynes07" path="res://YWNS_Assets/4-Purple_640x360.png" id="20_u2m48"]
+
+[sub_resource type="Animation" id="Animation_5mh0h"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YellowFlash/FadeOut:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3d7db"]
+resource_name = "Pan"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BattleCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, 1, 1),
+"update": 0,
+"values": [Vector2(-160, 90), Vector2(160, 90), Vector2(160, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YellowFlash/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.772549, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("YellowFlash/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("YellowFlash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_no85o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BattleCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-160, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YellowFlash/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("YellowFlash/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("YellowFlash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("YellowFlash/ColorRect:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("YellowFlash/FadeOut:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxgec"]
+_data = {
+"FadeOut": SubResource("Animation_5mh0h"),
+"Pan": SubResource("Animation_3d7db"),
+"RESET": SubResource("Animation_no85o")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ops0e"]
+blend_mode = 1
+
+[node name="Battle" type="Node2D"]
+self_modulate = Color(1, 1, 1, 0)
+script = ExtResource("1_s1rqf")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="SkyLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="SkySprite" type="Sprite2D" parent="ParallaxBackground/SkyLayer"]
+texture = ExtResource("2_n0jd4")
+centered = false
+
+[node name="MountainLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(80, 0)
+motion_mirroring = Vector2(400, 0)
+
+[node name="MountainSprite" type="Sprite2D" parent="ParallaxBackground/MountainLayer"]
+texture = ExtResource("3_6a8eg")
+centered = false
+
+[node name="FarTreeLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(-100, 0)
+motion_mirroring = Vector2(500, 0)
+
+[node name="FarTreeSprite" type="Sprite2D" parent="ParallaxBackground/FarTreeLayer"]
+texture = ExtResource("4_i12og")
+centered = false
+
+[node name="TreeLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_offset = Vector2(-150, 0)
+motion_mirroring = Vector2(480, 0)
+
+[node name="FarTreeSprite" type="Sprite2D" parent="ParallaxBackground/TreeLayer"]
+texture = ExtResource("5_fqwkt")
+centered = false
+
+[node name="GrassLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(420, 0)
+
+[node name="GrassSprite" type="Sprite2D" parent="ParallaxBackground/GrassLayer"]
+position = Vector2(-50, 0)
+texture = ExtResource("6_kxpnl")
+centered = false
+
+[node name="PlayerPosition" type="Marker2D" parent="."]
+position = Vector2(250, 136)
+
+[node name="PlayerBattleUnit" parent="PlayerPosition" instance=ExtResource("7_ut7bd")]
+stats = ExtResource("8_0tu6a")
+
+[node name="EnemyPosition" type="Marker2D" parent="."]
+position = Vector2(64, 65)
+
+[node name="EnemyBattleUnit" parent="EnemyPosition" instance=ExtResource("7_ut7bd")]
+scale = Vector2(-1, 1)
+stats = ExtResource("9_jouir")
+
+[node name="ParallaxForeground" type="ParallaxBackground" parent="."]
+layer = 10
+visible = false
+
+[node name="GrassCloseLayer" type="ParallaxLayer" parent="ParallaxForeground"]
+motion_scale = Vector2(1.2, 1.2)
+motion_mirroring = Vector2(320, 0)
+
+[node name="GrassCloseSprite" type="Sprite2D" parent="ParallaxForeground/GrassCloseLayer"]
+texture = ExtResource("7_cf5re")
+centered = false
+
+[node name="ForeGrassLayer" type="ParallaxLayer" parent="ParallaxForeground"]
+motion_scale = Vector2(1.4, 1.4)
+motion_mirroring = Vector2(320, 0)
+
+[node name="ForeGrassSprite" type="Sprite2D" parent="ParallaxForeground/ForeGrassLayer"]
+texture = ExtResource("8_quycr")
+centered = false
+
+[node name="ForeTreeLayer" type="ParallaxLayer" parent="ParallaxForeground"]
+motion_scale = Vector2(1.4, 1.4)
+
+[node name="ForeTreeSprite" type="Sprite2D" parent="ParallaxForeground/ForeTreeLayer"]
+position = Vector2(-250, 0)
+texture = ExtResource("9_ut0lq")
+centered = false
+
+[node name="BattleCamera" parent="." instance=ExtResource("13_e6hvl")]
+modulate = Color(0.945098, 0, 0.945098, 1)
+position = Vector2(-160, 90)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fxgec")
+}
+autoplay = "Pan"
+script = ExtResource("11_lfpev")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="BattleUI" type="CanvasLayer" parent="."]
+layer = 10
+follow_viewport_enabled = true
+
+[node name="PlayerBattleUnitInfo" parent="BattleUI" instance=ExtResource("14_tv2pf")]
+offset_left = 220.0
+offset_top = 160.0
+offset_right = 220.0
+offset_bottom = 160.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyBattleUnitInfo" parent="BattleUI" instance=ExtResource("14_tv2pf")]
+offset_left = 30.0
+offset_top = 90.0
+offset_right = 30.0
+offset_bottom = 90.0
+
+[node name="CenterContainer" type="CenterContainer" parent="BattleUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -604.0
+offset_bottom = -356.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelUpUI" parent="BattleUI" instance=ExtResource("15_gsp3d")]
+unique_name_in_owner = true
+visible = false
+top_level = true
+offset_left = 96.0
+offset_top = 72.0
+offset_right = 216.0
+offset_bottom = 112.0
+
+[node name="BattleMenuManager" parent="BattleUI" instance=ExtResource("17_rod84")]
+unique_name_in_owner = true
+offset_left = 64.0
+offset_top = 90.0
+offset_right = 64.0
+offset_bottom = 90.0
+
+[node name="YellowFlash" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="YellowFlash"]
+material = SubResource("CanvasItemMaterial_ops0e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FadeOut" type="ColorRect" parent="YellowFlash"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterRoot" type="Node" parent="."]
+
+[node name="CenterPoint" type="Control" parent="CenterRoot"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 160.0
+offset_bottom = 90.0
+
+[node name="LevelUpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_2o7yi")
+volume_db = -12.071
+bus = &"Sounds"
+
+[node name="BattleStartSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_4t0j7")
+volume_db = -3.714
+bus = &"Sounds"
+
+[node name="4-purple640x360" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(17, 151.5)
+scale = Vector2(1.75312, 1.825)
+texture = ExtResource("20_u2m48")

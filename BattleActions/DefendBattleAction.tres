@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BattleAction" load_steps=2 format=3 uid="uid://bsv4ah7osy6p0"]
+
+[ext_resource type="Script" path="res://BattleActions/BattleAction.gd" id="1_scoen"]
+
+[resource]
+script = ExtResource("1_scoen")
+name = "Defend"
+description = "Lower Damage taken by50%."

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BasicBattleAction" load_steps=3 format=3 uid="uid://d24gfhuxg5gyc"]
+
+[ext_resource type="PackedScene" uid="uid://c1rofx3716rto" path="res://Projectiles/agoras_light.tscn" id="1_ao0l3"]
+[ext_resource type="Script" path="res://BattleActions/BasicBattleAction.gd" id="1_ov3ti"]
+
+[resource]
+script = ExtResource("1_ov3ti")
+stationaryattack = ExtResource("1_ao0l3")
+damage = 8
+name = "Agora's Light"
+description = "Light"

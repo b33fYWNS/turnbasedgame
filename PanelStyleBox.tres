@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bb8g7coikg73x"]
+
+[ext_resource type="Texture2D" uid="uid://d2owwrdw51yct" path="res://WestwickAssets/Sprites/Textbox9Slice.png" id="1_8c7lm"]
+
+[resource]
+texture = ExtResource("1_8c7lm")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0

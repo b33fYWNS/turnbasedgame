@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckluqkh3fc88v"]
+
+[ext_resource type="PackedScene" uid="uid://cxw0i3l34n7ln" path="res://UI/scroll_list.tscn" id="1_3yblv"]
+[ext_resource type="Script" path="res://UI/item_list.gd" id="2_xpack"]
+
+[node name="ItemList" instance=ExtResource("1_3yblv")]
+script = ExtResource("2_xpack")

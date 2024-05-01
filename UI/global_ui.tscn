@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg1e45j5b8tcv"]
+
+[ext_resource type="PackedScene" uid="uid://4hglrus0u7jx" path="res://UI/message_display.tscn" id="1_dent5"]
+[ext_resource type="Texture2D" uid="uid://dvuf0daxj0qtg" path="res://WestwickAssets/Sprites/Vignette.png" id="2_vgcjm"]
+
+[node name="GlobalUI" type="CanvasLayer"]
+layer = 128
+
+[node name="MessageDisplay" parent="." instance=ExtResource("1_dent5")]
+visible = false
+offset_left = 225.0
+offset_top = 16.0
+offset_right = 417.0
+offset_bottom = 136.0
+
+[node name="Vignette" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.407843)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vgcjm")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.161

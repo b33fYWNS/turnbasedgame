@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl58kjqfn7m43"]
+
+[ext_resource type="Theme" uid="uid://dffh2dsnqddfy" path="res://UI/default_theme.tres" id="1_flx78"]
+[ext_resource type="Script" path="res://UI/parent_button.gd" id="2_mwfrr"]
+[ext_resource type="AudioStream" uid="uid://td1woyl58qhe" path="res://YWNS_Assets/MusicSFX/UI_Weapons_SFX.mp3" id="3_kie3s"]
+[ext_resource type="AudioStream" uid="uid://beka30tftbuwl" path="res://YWNS_Assets/MusicSFX/select4short.wav" id="4_a67at"]
+
+[node name="ParentButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("1_flx78")
+alignment = 0
+script = ExtResource("2_mwfrr")
+
+[node name="FocusSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kie3s")
+volume_db = -16.714
+bus = &"Sounds"
+
+[node name="SelectSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_a67at")
+volume_db = -11.607
+bus = &"Sounds"
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://btnxouy0sw0nr"]
+
+[ext_resource type="Texture2D" uid="uid://u7wbaq76wn4u" path="res://YWNS_Assets/UI_HealthBar_Dark.png" id="1_sjnfk"]
+[ext_resource type="Script" path="res://UI/value_bar.gd" id="2_ya3vj"]
+[ext_resource type="Texture2D" uid="uid://hr6d67f11rly" path="res://WestwickAssets/Sprites/HealthBarDamage.png" id="3_ogisb"]
+[ext_resource type="Texture2D" uid="uid://dy34t5rifj383" path="res://WestwickAssets/Sprites/HealthBarDark.png" id="4_qbjsd"]
+[ext_resource type="Texture2D" uid="uid://br1ijm5kssfrg" path="res://WestwickAssets/Sprites/HealthBar.png" id="5_mi5r7"]
+
+[node name="ValueBar" type="TextureRect"]
+offset_right = 65.0
+offset_bottom = 16.0
+texture = ExtResource("1_sjnfk")
+expand_mode = 1
+script = ExtResource("2_ya3vj")
+
+[node name="Decrease" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 64.0
+offset_bottom = 10.0
+value = 75.0
+nine_patch_stretch = true
+texture_progress = ExtResource("3_ogisb")
+
+[node name="Increase" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 64.0
+offset_bottom = 10.0
+value = 60.0
+nine_patch_stretch = true
+texture_progress = ExtResource("4_qbjsd")
+metadata/_edit_lock_ = true
+
+[node name="Actual" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 64.0
+offset_bottom = 10.0
+value = 50.0
+nine_patch_stretch = true
+texture_progress = ExtResource("5_mi5r7")
+metadata/_edit_lock_ = true

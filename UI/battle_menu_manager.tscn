@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwoprutdptj4n"]
+
+[ext_resource type="Script" path="res://UI/battle_menu_manager.gd" id="1_psq4l"]
+[ext_resource type="PackedScene" uid="uid://jqhbq2cmd4dg" path="res://UI/battle_menu.tscn" id="2_dxw8y"]
+[ext_resource type="PackedScene" uid="uid://cxw0i3l34n7ln" path="res://UI/scroll_list.tscn" id="3_a0kfn"]
+[ext_resource type="PackedScene" uid="uid://5vy5d0qqs2oo" path="res://UI/context_menu.tscn" id="4_5i2y4"]
+[ext_resource type="PackedScene" uid="uid://ckluqkh3fc88v" path="res://UI/item_list.tscn" id="4_lyj1p"]
+[ext_resource type="PackedScene" uid="uid://bochelj5hupcq" path="res://UI/info_menu.tscn" id="5_4tt45"]
+
+[node name="BattleMenuManager" type="Control"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+script = ExtResource("1_psq4l")
+
+[node name="BattleMenu" parent="." instance=ExtResource("2_dxw8y")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 0.0
+offset_bottom = 27.0
+
+[node name="MenuPosition" type="Marker2D" parent="BattleMenu"]
+position = Vector2(14, -4)
+
+[node name="MenuContainer" type="HBoxContainer" parent="BattleMenu/MenuPosition"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -44.0
+offset_right = 238.0
+grow_vertical = 0
+
+[node name="ActionList" parent="BattleMenu/MenuPosition/MenuContainer" instance=ExtResource("3_a0kfn")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ItemList" parent="BattleMenu/MenuPosition/MenuContainer" instance=ExtResource("4_lyj1p")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ContextMenu" parent="BattleMenu/MenuPosition/MenuContainer" instance=ExtResource("4_5i2y4")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="InfoMenu" parent="BattleMenu/MenuPosition/MenuContainer" instance=ExtResource("5_4tt45")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[connection signal="menu_option_selected" from="BattleMenu" to="." method="_on_battle_menu_menu_option_selected"]
+[connection signal="resource_selected" from="BattleMenu/MenuPosition/MenuContainer/ActionList" to="." method="_on_action_list_resource_selected"]
+[connection signal="resource_selected" from="BattleMenu/MenuPosition/MenuContainer/ItemList" to="." method="_on_item_list_resource_selected"]
+[connection signal="option_selected" from="BattleMenu/MenuPosition/MenuContainer/ContextMenu" to="." method="_on_context_menu_option_selected"]

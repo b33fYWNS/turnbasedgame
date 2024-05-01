@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmu0eje7l3mfj"]
+
+[ext_resource type="PackedScene" uid="uid://ernrprdk5781" path="res://UI/over_world_menu.tscn" id="1_1tmyl"]
+[ext_resource type="Script" path="res://UI/overworld_menu_manager.gd" id="1_hojbp"]
+[ext_resource type="PackedScene" uid="uid://dyki2nuvujpnh" path="res://UI/elizabeth_stats.tscn" id="2_ocmcl"]
+[ext_resource type="PackedScene" uid="uid://ckluqkh3fc88v" path="res://UI/item_list.tscn" id="3_w2rda"]
+[ext_resource type="PackedScene" uid="uid://5vy5d0qqs2oo" path="res://UI/context_menu.tscn" id="4_7a3oe"]
+[ext_resource type="PackedScene" uid="uid://bochelj5hupcq" path="res://UI/info_menu.tscn" id="5_fjcuw"]
+[ext_resource type="AudioStream" uid="uid://bynt6p1hjbmgv" path="res://YWNS_Assets/MusicSFX/Healing2.wav" id="7_wo3qo"]
+
+[node name="OverworldMenuManager" type="MarginContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_hojbp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="OverWorldMenu" parent="HBoxContainer" instance=ExtResource("1_1tmyl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ElizabethStats" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_ocmcl")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ItemList" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_w2rda")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 2
+
+[node name="ContextMenu" parent="HBoxContainer" instance=ExtResource("4_7a3oe")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="InfoMenu" parent="HBoxContainer" instance=ExtResource("5_fjcuw")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HealingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wo3qo")
+volume_db = -10.679
+bus = &"Sounds"
+
+[connection signal="option_selected" from="HBoxContainer/OverWorldMenu" to="." method="_on_over_world_menu_option_selected"]
+[connection signal="resource_selected" from="HBoxContainer/VBoxContainer/ItemList" to="." method="_on_item_list_resource_selected"]
+[connection signal="option_selected" from="HBoxContainer/ContextMenu" to="." method="_on_context_menu_option_selected"]

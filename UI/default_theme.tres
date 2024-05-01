@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dffh2dsnqddfy"]
+
+[ext_resource type="Texture2D" uid="uid://b7miafyl6xup2" path="res://YWNS_Assets/Textbox9Slice-YWNS.png" id="1_7ktde"]
+[ext_resource type="StyleBox" uid="uid://bb8g7coikg73x" path="res://PanelStyleBox.tres" id="1_jwql6"]
+[ext_resource type="Texture2D" uid="uid://b6tv7j285ak63" path="res://WestwickAssets/Sprites/ScrollBarButton.png" id="2_agyqw"]
+[ext_resource type="Texture2D" uid="uid://bn8c2ugsuc1p3" path="res://WestwickAssets/Sprites/ScrollBarBackground.png" id="3_3osgu"]
+[ext_resource type="FontFile" uid="uid://ctefodte3vsbt" path="res://YWNS_Assets/monogram.ttf" id="5_qcdsb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nxb16"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_agpbe"]
+texture = ExtResource("1_7ktde")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0614s"]
+texture = ExtResource("2_agyqw")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0gge3"]
+texture = ExtResource("3_3osgu")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[resource]
+default_font = ExtResource("5_qcdsb")
+default_font_size = 16
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_focus_color = Color(0.972549, 0.941176, 0.211765, 1)
+Button/colors/font_hover_color = Color(0.972549, 0.941176, 0.211765, 1)
+Button/colors/font_hover_pressed_color = Color(1, 0.721569, 0.584314, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_nxb16")
+Button/styles/focus = SubResource("StyleBoxEmpty_nxb16")
+Button/styles/hover = SubResource("StyleBoxEmpty_nxb16")
+Button/styles/normal = SubResource("StyleBoxEmpty_nxb16")
+Button/styles/pressed = SubResource("StyleBoxEmpty_nxb16")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_agpbe")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_0614s")
+VScrollBar/styles/grabber_highlight = ExtResource("1_jwql6")
+VScrollBar/styles/grabber_pressed = ExtResource("1_jwql6")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_0gge3")
+VScrollBar/styles/scroll_focus = ExtResource("1_jwql6")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://63rng0y4qvui"]
+
+[ext_resource type="Script" path="res://UI/battle_unit_info.gd" id="1_1f53v"]
+[ext_resource type="PackedScene" uid="uid://btnxouy0sw0nr" path="res://UI/value_bar.tscn" id="1_slkgj"]
+[ext_resource type="Theme" uid="uid://dffh2dsnqddfy" path="res://UI/default_theme.tres" id="2_lv40u"]
+[ext_resource type="Texture2D" uid="uid://cl0vh356foqt1" path="res://WestwickAssets/Sprites/BattleUnitInfoShadow.png" id="3_dl0ya"]
+
+[node name="BattleUnitInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_1f53v")
+
+[node name="Shadow" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 26.0
+theme = ExtResource("2_lv40u")
+texture = ExtResource("3_dl0ya")
+metadata/_edit_lock_ = true
+
+[node name="HealthBar" parent="." instance=ExtResource("1_slkgj")]
+layout_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="LevelLabel" type="Label" parent="."]
+visible = false
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 38.0
+theme = ExtResource("2_lv40u")
+text = "Level: 1"

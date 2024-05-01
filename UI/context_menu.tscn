@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://5vy5d0qqs2oo"]
+
+[ext_resource type="Theme" uid="uid://dffh2dsnqddfy" path="res://UI/default_theme.tres" id="1_f7dbv"]
+[ext_resource type="Script" path="res://UI/context_menu.gd" id="2_fw1qn"]
+[ext_resource type="PackedScene" uid="uid://bl58kjqfn7m43" path="res://UI/parent_button.tscn" id="3_kcri1"]
+
+[node name="ContextMenu" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_f7dbv")
+script = ExtResource("2_fw1qn")
+focus_nodes = Array[NodePath]([NodePath("MarginContainer/VBoxContainer/UseButton"), NodePath("MarginContainer/VBoxContainer/InfoButton")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="UseButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_kcri1")]
+layout_mode = 2
+text = "Use"
+
+[node name="InfoButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_kcri1")]
+layout_mode = 2
+text = "Info"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/UseButton" to="." method="_on_use_button_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/InfoButton" to="." method="_on_info_button_button_down"]

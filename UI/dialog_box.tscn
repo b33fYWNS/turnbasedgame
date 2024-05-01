@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://uo6etj8oyqoo"]
+
+[ext_resource type="Theme" uid="uid://dffh2dsnqddfy" path="res://UI/default_theme.tres" id="1_p5dxw"]
+[ext_resource type="Texture2D" uid="uid://2u2nctsqfvtf" path="res://YWNS_Assets/Dialog_box_test_03.png" id="2_yd41j"]
+[ext_resource type="Script" path="res://UI/dialog_box.gd" id="3_7phqh"]
+[ext_resource type="FontFile" uid="uid://bavhyycajdr8m" path="res://YWNS_Assets/Hexenaat2.ttf" id="4_st4fl"]
+[ext_resource type="Texture2D" uid="uid://b5u0hwgebw80i" path="res://YWNS_Assets/temp_game_pfp-export.png" id="5_nu4ml"]
+[ext_resource type="AudioStream" uid="uid://ei4062vwnxsj" path="res://WestwickAssets/MuiscAndSounds/a_voice.wav" id="6_whs11"]
+
+[node name="DialogBox" type="TextureRect"]
+process_mode = 3
+offset_right = 260.0
+offset_bottom = 161.0
+size_flags_horizontal = 4
+theme = ExtResource("1_p5dxw")
+texture = ExtResource("2_yd41j")
+script = ExtResource("3_7phqh")
+
+[node name="HboxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.2
+offset_top = -134.0
+offset_right = -105.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CharacterName" type="Label" parent="HboxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_st4fl")
+text = "Pilgrim"
+
+[node name="TextBox" type="RichTextLabel" parent="HboxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Text Goes Here. How long does this go not far"
+fit_content = true
+scroll_active = false
+text_direction = 1
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_whs11")
+volume_db = -1.856
+bus = &"Sounds"
+
+[node name="PortraitContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 148.0
+offset_top = 33.0
+offset_right = 248.0
+offset_bottom = 133.0
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="PortraitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("5_nu4ml")

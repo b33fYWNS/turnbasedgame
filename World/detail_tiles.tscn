@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://6wkwpv1xe8uq"]
+
+[ext_resource type="Texture2D" uid="uid://dt1230bvjmfte" path="res://WestwickAssets/Sprites/SmallRocks.png" id="1_2r14e"]
+[ext_resource type="Texture2D" uid="uid://c3jkicutjdmv2" path="res://WestwickAssets/Sprites/Arrows.png" id="2_r86a6"]
+[ext_resource type="Texture2D" uid="uid://dwyvycrdw7wqx" path="res://WestwickAssets/Sprites/WaterDetails.png" id="3_3237d"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h61mf"]
+texture = ExtResource("1_2r14e")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ag8fc"]
+texture = ExtResource("2_r86a6")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilsu4"]
+texture = ExtResource("3_3237d")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gr36u"]
+sources/0 = SubResource("TileSetAtlasSource_h61mf")
+sources/1 = SubResource("TileSetAtlasSource_ag8fc")
+sources/2 = SubResource("TileSetAtlasSource_ilsu4")
+
+[node name="DetailTiles" type="TileMap"]
+tile_set = SubResource("TileSet_gr36u")
+format = 2

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbacstjy3s07o"]
+
+[ext_resource type="Texture2D" uid="uid://0nkc14hwsnx6" path="res://YWNS_Assets/Church.png" id="1_4o7ya"]
+[ext_resource type="PackedScene" uid="uid://x6xpvsgnmcq0" path="res://World/door.tscn" id="2_741jn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kqkj"]
+size = Vector2(25, 18)
+
+[node name="BlackSmithHome" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+texture = ExtResource("1_4o7ya")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-95, -10)
+polygon = PackedVector2Array(-3, 1, 63, 33, 79, 28, 79, -1, 95, 7, 109, 11, 109, 49, 118, 52, 117, 58, 126, 64, 131, 61, 143, 67, 142, 71, 150, 76, 157, 73, 167, 77, 167, 84, 175, 90, 181, 85, 181, 85, 188, 89, 195, 86, 196, 81, 216, 72, 222, 79, 226, 76, 224, 70, 230, 67, 229, 63, 255, 51, 274, 64, 292, 53, 292, 49, 289, 47, 288, 34, 312, 21, 311, 28, 328, 36, 346, 27, 346, 23, 343, 20, 344, 7, 367, -5, 367, 1, 384, 9, 402, 0, 401, -5, 398, -7, 398, -20, 421, -32, 421, 13, 447, 20, 445, 29, 464, 38, 474, 34, 486, 41, 492, 45, 499, 40, 511, 35, 544, 16, 551, 16, 555, 13, 588, -4, 596, 3, 614, 3, 620, -1, 619, -13, 623, -15, 623, -49, 634, -53, 642, -51, 642, -28, 647, -28, 650, -33, 666, -29, 674, -32, 660, -125, 632, -161, 595, -171, 467, -259, 371, -270, 110, -163, 79, -143, 61, -147, 42, -136, 22, -104)
+metadata/_edit_lock_ = true
+
+[node name="Door" parent="." instance=ExtResource("2_741jn")]
+new_area = "res://World/church_interior_room_01.tscn"
+connection = 2
+door_sound_effect = true
+
+[node name="DropPoint" parent="Door" index="0"]
+position = Vector2(-17, 34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(-1, 15)
+shape = SubResource("RectangleShape2D_2kqkj")
+
+[editable path="Door"]

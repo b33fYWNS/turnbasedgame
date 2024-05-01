@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2eess3v128l"]
+
+[ext_resource type="Texture2D" uid="uid://cw42hbs4qeiok" path="res://WestwickAssets/Sprites/SmallTree.png" id="1_cee2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yu2cm"]
+size = Vector2(12.7279, 27.3685)
+
+[node name="SmallTree" type="StaticBody2D"]
+
+[node name="SmallTree" type="Sprite2D" parent="."]
+position = Vector2(22.08, -31.459)
+texture = ExtResource("1_cee2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(23.5432, -7.7806)
+shape = SubResource("RectangleShape2D_yu2cm")

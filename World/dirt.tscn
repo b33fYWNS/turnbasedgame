@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjt3ps5odqo08"]
+
+[ext_resource type="TileSet" uid="uid://1fmnbf0ebua3" path="res://WestwickAssets/Tiles/DirtTileSet.tres" id="1_3ky4c"]
+
+[node name="Dirt" type="TileMap"]
+y_sort_enabled = true
+tile_set = ExtResource("1_3ky4c")
+format = 2
+layer_0/y_sort_enabled = true

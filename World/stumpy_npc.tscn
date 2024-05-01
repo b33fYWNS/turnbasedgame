@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4iio28tlq5du"]
+
+[ext_resource type="PackedScene" uid="uid://bh1hkwgni8gy4" path="res://World/npc.tscn" id="1_4rf1b"]
+[ext_resource type="Script" path="res://World/stumpy_npc.gd" id="2_rfmny"]
+[ext_resource type="Resource" uid="uid://xwfddciiu02j" path="res://Characters/StumpyCharacter.tres" id="3_b2cy8"]
+[ext_resource type="Texture2D" uid="uid://e5xwem3j43mf" path="res://YWNS_Assets/Olsten.png" id="4_flwd8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_588xs"]
+size = Vector2(18, 18)
+
+[node name="StumpyNPC" instance=ExtResource("1_4rf1b")]
+script = ExtResource("2_rfmny")
+character = ExtResource("3_b2cy8")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("4_flwd8")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_588xs")

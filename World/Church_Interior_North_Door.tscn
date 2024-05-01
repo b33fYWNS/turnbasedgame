@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf5pknki7g3w"]
+
+[ext_resource type="Texture2D" uid="uid://buv674vomwjy1" path="res://YWNS_Assets/Church_Interior_Door_01.png" id="1_xi2l0"]
+
+[node name="Pillar" type="StaticBody2D"]
+collision_layer = 9
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -38)
+texture = ExtResource("1_xi2l0")
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, 18, -39, 12, -39, -69, 41, -70, 41, 10, 33, 18, 24, 12, 24, -52, 0, -62, -20, -53, -22, 9)

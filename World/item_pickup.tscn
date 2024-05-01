@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvgc2t2h1iwvk"]
+
+[ext_resource type="Script" path="res://World/item_pickup.gd" id="1_07nko"]
+[ext_resource type="AudioStream" uid="uid://dpos1urx5i0fx" path="res://YWNS_Assets/MusicSFX/Pickup_SFX.mp3" id="2_coygb"]
+
+[node name="ItemPickup" type="StaticBody2D"]
+collision_layer = 9
+collision_mask = 0
+script = ExtResource("1_07nko")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, 2, 3, 6, -3, 6, -6, 2, -6, -5, -4, -7, 4, -7, 6, -5)
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_coygb")
+volume_db = -9.75
+bus = &"Sounds"
+
+[node name="PickupSoundTimer" type="Timer" parent="."]

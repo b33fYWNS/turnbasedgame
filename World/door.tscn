@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://x6xpvsgnmcq0"]
+
+[ext_resource type="Script" path="res://World/Door.gd" id="1_flq1q"]
+
+[node name="Door" type="Area2D" groups=["Doors"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_flq1q")
+
+[node name="DropPoint" type="Marker2D" parent="."]
+z_index = 2

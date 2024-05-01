@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2s08nj4ododc"]
+
+[ext_resource type="Texture2D" uid="uid://fmpcatislocr" path="res://WestwickAssets/Sprites/GrassBase.png" id="1_yy43k"]
+
+[node name="GrassBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(320, 192)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
+custom_minimum_size = Vector2(320, 192)
+offset_top = -7.0
+offset_right = 727.0
+offset_bottom = 363.0
+texture = ExtResource("1_yy43k")
+stretch_mode = 1
+metadata/_edit_lock_ = true

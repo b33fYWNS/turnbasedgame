@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://qi76xv2o5ov7"]
+
+[ext_resource type="Texture2D" uid="uid://fpem6nwlpdp1" path="res://WestwickAssets/Sprites/Tree.png" id="1_dc6da"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxiij"]
+radius = 12.8541
+
+[node name="Tree" type="StaticBody2D"]
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(26.9133, -39.7394)
+texture = ExtResource("1_dc6da")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.3453, -14.0837)
+shape = SubResource("CircleShape2D_jxiij")

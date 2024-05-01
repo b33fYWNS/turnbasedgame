@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh1hkwgni8gy4"]
+
+[ext_resource type="Script" path="res://World/npc.gd" id="1_42gtf"]
+[ext_resource type="Texture2D" uid="uid://ssb8c588miwn" path="res://WestwickAssets/Sprites/AxeStump.png" id="2_igkg6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_32vl2"]
+radius = 8.0
+
+[node name="NPC" type="CharacterBody2D"]
+collision_layer = 9
+collision_mask = 0
+script = ExtResource("1_42gtf")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_igkg6")
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_32vl2")
+
+[node name="Textbox_Location" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-8, -24)

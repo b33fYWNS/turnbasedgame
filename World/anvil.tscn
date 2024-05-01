@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://urlcm470g13s"]
+
+[ext_resource type="Texture2D" uid="uid://bxcrp8awn2258" path="res://WestwickAssets/Sprites/Anvil.png" id="1_yhmpv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkwm4"]
+radius = 8.0
+
+[node name="Anvil" type="StaticBody2D"]
+
+[node name="Anvil" type="Sprite2D" parent="."]
+texture = ExtResource("1_yhmpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_bkwm4")

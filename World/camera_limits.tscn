@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://86m38v16b6o4"]
+
+[ext_resource type="Script" path="res://CameraLimits.gd" id="1_vs7h1"]
+
+[node name="CameraLimits" type="ColorRect"]
+self_modulate = Color(1, 1, 1, 0.184314)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vs7h1")

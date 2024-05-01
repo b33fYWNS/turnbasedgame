@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg55e1kp08wsg"]
+
+[ext_resource type="Texture2D" uid="uid://dlf5o221ag7pp" path="res://WestwickAssets/Sprites/Forge.png" id="1_01qh2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j84m2"]
+size = Vector2(32, 24)
+
+[node name="Forge" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+texture = ExtResource("1_01qh2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 20)
+shape = SubResource("RectangleShape2D_j84m2")

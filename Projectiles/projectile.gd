@@ -22,7 +22,6 @@ signal collision_animation_finished
 
 func move_to(target:BattleUnit, trans : int = Tween.TRANS_LINEAR, easing : int = Tween.EASE_IN) -> void:
 	z_index = 25
-	asyncTurnPool.add(self)
 	var tween := create_tween().set_trans(trans).set_ease(easing)
 	var target_position := target.global_position
 	tween.tween_property(self, "global_position", target_position, travel_duration).from_current()
@@ -33,7 +32,6 @@ func move_to(target:BattleUnit, trans : int = Tween.TRANS_LINEAR, easing : int =
 	_animate_collision()
 	await collision_animation_finished
 	
-	asyncTurnPool.remove(self)
 	queue_free()
 
 #############

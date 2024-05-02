@@ -123,27 +123,38 @@ func use_item(target: BattleUnit, item : Item) -> void:
 	asyncTurnPool.remove(self)
 	
 func deal_damage(target: BattleUnit, battle_action : DamageBattleAction) -> void:
-	var damage = (((stats.attack*1.1 - (target.stats.defense * 2))*battle_action.damage/10))
-	#if target.defend:
+	print("Attacker's Stats:")
+	print("Attack: ", stats.attack)
+	print("Crit Chance: ", stats.crit_chance)
 	
-		#target.defend = false
-		#damage = round(damage/2)	
-	var crit_chance = stats.crit_chance
-	if randf()< crit_chance:
+	print("Defender's Stats:")
+	print("Defense: ", target.stats.defense)
+	print("Weaknesses: ", target.stats.weaknesses)
+	
+	var base_damage = (((stats.attack*1.1 - (target.stats.defense * 1.1))*battle_action.damage/2))
+	print("Base Damage: ", base_damage)
+	var is_weak = target.stats.weaknesses.has(battle_action.element)
+	print("Is Weak: ", is_weak)
+	var damage = base_damage
+	if is_weak:
 		damage *= 2
-		critical_hit.emit()
-	else:
-		normal_hit.emit()
-	target.stats.health -= damage
-	var is_critical = randf() < crit_chance
+		print("Weakness Multiplier Applied")
+		weakness_hit.emit()
+	var is_critical = randf() < stats.crit_chance
+	if is_critical:
+		damage *= 2
+		print("Critical Hit Multiplier Applied")
+	print("Final Damage: ", damage)
 
 	var damage_number = damage_number_scene.instantiate()
 	add_child(damage_number)
-	damage_number.global_position = target.global_position + Vector2(0,-70)
-	if normal_hit:
-		damage_number.set_damage_number(damage)
-	elif critical_hit:
-		damage_number.set_critical_damage_number(damage + "!!")
+	damage_number.global_position = target.global_position + Vector2(0,-90)
+	if is_critical:
+		damage_number.set_critical_damage_number(damage, is_weak)
+	else:
+		damage_number.set_damage_number(damage, is_weak)
+	target.stats.health -= damage
+	print("Defender's Health: ", target.stats.health)
 	
 func take_hit(attacker: BattleUnit) -> void:
 	hit_sfx.play()

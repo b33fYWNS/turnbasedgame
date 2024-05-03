@@ -11,15 +11,21 @@ func push_song(song : AudioStreamPlayer) -> void:
 	song.play()
 		
 func pop_song() -> void:
-	if stack.is_empty(): return
+	if stack.is_empty():
+		#print("Music stack is empty, no song to pop")
+		return
 	var current_song : AudioStreamPlayer = stack.pop_back()
 	var volume_fade = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	volume_fade.tween_property(current_song, "volume_db", -50,-10).from_current()
 	await volume_fade.finished
 	current_song.stop()
 	current_song.volume_db = -10
-	var last_song : AudioStreamPlayer = stack.back()
-	last_song.volume_db = -50
-	last_song.stream_paused = false
-	var volume_rise = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	volume_rise.tween_property(last_song, "volume_db",-10, -10).from_current()
+	if not stack.is_empty():
+		var last_song : AudioStreamPlayer = stack.back()
+		last_song.volume_db = -50
+		last_song.stream_paused = false
+		var volume_rise = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		volume_rise.tween_property(last_song, "volume_db",-10, -10).from_current()
+	else:
+		#print("Music stack is empty after popping the song.")
+		pass
